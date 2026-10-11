@@ -26,7 +26,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
-const REVISION = (process.env.REVISION || 'a').toLowerCase();
+const REVISION = (process.env.REVISION || 'b').toLowerCase();
 
 app.use(express.json());
 
