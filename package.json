@@ -1,16 +1,19 @@
 {
   "name": "ghostrunner-demo-store",
   "version": "1.0.0",
-  "description": "Minimal e-commerce app used to demo GhostRunner AI self-healing tests. Supports 3 revisions via REVISION env var.",
+  "description": "Minimal e-commerce demo app for GhostRunner AI self-healing test runner. Three revisions: A (passes), B (locator drift), C (API failure).",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "start:b": "node server.js",
-    "start:c": "node server.js"
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
   },
-  "keywords": ["ghostrunner", "demo", "e2e-testing", "self-healing-tests"],
+  "keywords": ["ghostrunner", "demo", "e2e-testing", "self-healing-tests", "playwright"],
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0"
   }
 }
