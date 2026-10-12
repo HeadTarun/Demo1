@@ -26,7 +26,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
-const REVISION = (process.env.REVISION || 'c').toLowerCase();
+const REVISION = (process.env.REVISION || 'b').toLowerCase();
 
 app.use(express.json());
 
@@ -54,8 +54,8 @@ app.get('/health', (_req, res) =>
 
 app.get('/', (_req, res) => {
   // Revision B simulates a frontend refactor where the button ID and label changed
-  const buttonId    = REVISION === 'b' ? 'place-order-btn'  : 'checkout-btn';
-  const buttonLabel = REVISION === 'b' ? 'Place Order'       : 'Checkout';
+  const buttonId    = REVISION === 'b' ? 'complete-order-btn' : 'checkout-btn';
+  const buttonLabel = REVISION === 'b' ? 'Complete Order'     : 'Checkout';
   const revisionBadge = {
     a: { label: 'v1.0 — Initial',          color: '#22c55e' },
     b: { label: 'v1.1 — UI Refactor 🔥',   color: '#f59e0b' },
@@ -127,7 +127,7 @@ app.get('/', (_req, res) => {
       color: #1e293b;
       margin-bottom: 24px;
     }
-    #checkout-btn, #place-order-btn {
+    #checkout-btn, #place-order-btn, #complete-order-btn {
       width: 100%;
       padding: 14px;
       background: #7c3aed;
@@ -139,8 +139,8 @@ app.get('/', (_req, res) => {
       cursor: pointer;
       transition: background 0.2s;
     }
-    #checkout-btn:hover, #place-order-btn:hover { background: #6d28d9; }
-    #checkout-btn:disabled, #place-order-btn:disabled {
+    #checkout-btn:hover, #place-order-btn:hover, #complete-order-btn:hover { background: #6d28d9; }
+    #checkout-btn:disabled, #place-order-btn:disabled, #complete-order-btn:disabled {
       background: #a5b4fc;
       cursor: not-allowed;
     }
